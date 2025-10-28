@@ -6,6 +6,10 @@
     scroll-behavior: smooth;
 }
 
+body{
+    overflow-x: hidden;
+}
+
 nav{
     position: fixed;
     top: 0;
@@ -50,18 +54,20 @@ nav{
 }
 
 .logo{
-    width: 80px;
-    height: 90px;
+    width: 45px;
+    height: 40px;
+}
+
+.logo3{
+    justify-content: center;
 }
 
 #s1{
     min-height: 100vh;
-    padding-top: 80px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 50px;
     background-color: black;
+    background-image: url(./Images/Banner2.jpg);
+    background-repeat: no-repeat;
+    background-size: contain;
 }
 
 .left{
@@ -69,10 +75,23 @@ nav{
     display: flex;
     align-items: center;
     justify-content: center;
+    animation: fromLeft 500ms ease-in-out;
+}
+
+@keyframes fromLeft {
+    0%{
+        transform: translate(-100px);
+        opacity: 0;
+    }   
+    100%{ 
+        transform: translate(0px);
+        opacity: 1;
+    }
 }
 
 .right{
     width: 350px;
+    animation: fromRight 500ms ease-in-out;
 }
 
 .wrap-banner{
@@ -108,20 +127,93 @@ nav{
 #s2{
     min-height: 100vh;
     padding-top: 80px;
+    background-color: black;
+}
+
+.card h3{
+    color: white;
+}
+
+.card p{
+    color: white;
+}
+
+.wrap-cards{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+
+.card{
+    width: 700px;
+    height: 700px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.card img{
+    width: 80%;
+    height: auto;
+    margin-bottom: 80px;
+    transition: all 200ms linear;
+    border-radius: 16px;
+}
+
+.card:hover img{
+    transform: scale(1.1);
 }
 
 #s3{
     min-height: 100vh;
-    padding-top: 80px;
+    width: 100%;
+    background-color: black;
+    background-image: url(./Images/FUNDO2.jpg);
+    box-shadow: 0px 3px 20px rgba(0, 0, 0, 0.475);
+    z-index: 999;
+    animation: fromTop 2s ease-in-out;
+}
+
+#s3 iframe{
+    width: 80%;
+    height: 800px;
+}
+
+.wrap-video{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
 }
 
 #s4{
     min-height: 100vh;
     padding-top: 80px;
+    background-image: url(./Images/FUNDO.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.b-img{
+    width: 100%;
+    height: 100px;
 }
 
 
 @media (width <= 768px){
+    body{
+    padding-top: 15vh;
+}
+
     nav{
         flex-direction: column;
         height: auto;
@@ -131,27 +223,8 @@ nav{
         text-align: center;
     }
 
-    #s1, #s2, #s3, #s4{
-        padding-top: 50px;
-        min-height: 50vh;
-        height: auto;
-    }
-    #s1{
-        flex-direction: column;
-    }
-
-    #s1,
-    #s2,
-    #s3,
-    #s4{
-        padding: 50px;
-        min-height: 50vh;
-        height: auto;
-    }
-
     #s1 {
-        flex-direction: column;
-        padding-top: 130px;
+        min-height: 100vh;  
     }
 
     .left{
@@ -171,5 +244,16 @@ nav{
     .wrap-banner img{
         width: 250px;
         height: 250px;
+    }
+
+    #s3{
+        min-height: 50vh;
+        height: auto;
+        width: 100%;
+    }
+
+   #s3 iframe{
+        width:100%;
+        height: 200px;
     }
 }
